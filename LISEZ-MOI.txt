@@ -1,0 +1,33 @@
+OMS SERVICE – Déploiement sur Vercel
+====================================
+
+Contenu : site statique (aucune installation, aucun build).
+  index.html, manifest.webmanifest, sw.js, vercel.json, dossiers img/ et icons/
+
+MÉTHODE 1 – Avec GitHub (la plus simple, mises à jour automatiques)
+  1. Créez un dépôt GitHub et envoyez-y TOUS les fichiers de ce dossier
+     (index.html doit être à la racine du dépôt).
+  2. Sur vercel.com : "Add New… > Project" > choisissez le dépôt.
+  3. Framework Preset : "Other". Laissez Build Command et Output Directory vides.
+  4. Cliquez sur "Deploy". Votre site est en ligne en HTTPS.
+
+MÉTHODE 2 – Avec la ligne de commande
+  1. Installez Node.js, puis dans ce dossier :   npx vercel
+  2. Répondez aux questions (laissez les réglages par défaut).
+  3. Pour la mise en ligne définitive :           npx vercel --prod
+
+APRÈS LA MISE EN LIGNE
+  - Ouvrez le site sur un téléphone : le bouton "Installer" apparaît (Android/Chrome),
+    ou le guide iPhone (Safari > Partager > Sur l'écran d'accueil).
+  - Espace admin : bouton 🔐 en haut (code par défaut 1234, à changer tout de suite).
+  - Espace livreur : bouton 🛵 (code par défaut 0000). Changez-le dans Admin.
+  - Numéro WhatsApp : à renseigner dans Admin > Réglages (format 227XXXXXXXX).
+
+À SAVOIR
+  - Les produits ajoutés, les commandes et les codes sont enregistrés dans le
+    navigateur de chaque appareil (pas sur un serveur). Les produits ajoutés dans
+    Admin ne sont donc visibles que sur l'appareil où vous les ajoutez.
+    Pour un catalogue commun à tous les clients, modifiez la liste DEF dans index.html.
+  - Après une modification, augmentez le numéro de version dans sw.js
+    (const V='oms-v4' -> 'oms-v5') pour que les clients reçoivent la mise à jour.
+  - Domaine personnalisé : Vercel > Project > Settings > Domains.
